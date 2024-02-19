@@ -1,43 +1,17 @@
-import './styles.css'
+/** WRAPPER
+ * Весь контроль над открытиями осуществлеяется здесь
+ * Контроль открытия закрытия через рефы, реф прокидывается до кнопки тогл
+ * По клику по обертке - происходит закрытие карточек
+ * */
+import { useImperativeHandle, useRef } from 'react'
 
-/** У нас есть n-кнопок.
- * При нажатии на любую из них - открывается карточка под ней.
- * Все остальные карточки должны быть закрыты.
- * Убрать атрибут hidden и управлять отображением.
- * Можно декомпозировать на компоненты.
- */
+import { Cards } from './components/cards'
 
-const Toggle = () => {
+export function Wrapper () {
+    const itemsRef = useRef(null)
     return (
-        <div className="cards">
-            <div className="card">
-                <div className="header">
-                    <span>Card 1</span>
-                    <button>Toggle me</button>
-                </div>
-                <div className="form">
-                    <span>
-                        Enter your userdata
-                    </span>
-                    <input type="text" placeholder="username"/>
-                    <button>Send data</button>
-                </div>
-            </div>
-            <div className="card">
-                <div className="header">
-                    <span>Card 2</span>
-                    <button>Toggle me</button>
-                </div>
-                {false && <div className="form">
-                    <span>
-                        Enter address data
-                    </span>
-                    <input type="text" placeholder="Country"/>
-                    <button>Send data</button>
-                </div>}
-            </div>
+        <div className='container'>
+            <Cards ref={itemsRef}/>
         </div>
     )
 }
-
-export default Toggle

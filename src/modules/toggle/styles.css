@@ -1,7 +1,9 @@
 .cards {
+    min-height: 100vh;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .card {

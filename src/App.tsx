@@ -1,10 +1,10 @@
 import FixTheRouter from './modules/fix-the-router'
 import './styles/index.css'
+import { Wrapper } from '@/modules/toggle';
 
 function App () {
-    return <div className='container'>
-        <FixTheRouter />
-    </div>
+    return <Wrapper />;
+
 }
 
 export default App
