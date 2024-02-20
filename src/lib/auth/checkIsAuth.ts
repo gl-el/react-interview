@@ -1,4 +1,4 @@
-const AUTH_TIME = 2 * 60 * 1000 // 2 - количество минут
+export const AUTH_TIME = 2 * 60 * 1000 // 2 - количество минут
 
 export const checkIsAuth = () => {
     const authData = localStorage.getItem('auth')
