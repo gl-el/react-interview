@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 const FixTheRouter = () => {
@@ -15,6 +16,12 @@ const FixTheRouter = () => {
                     @/lib/auth/checkIsAuthorized
                 </span>
             </span>
+            <div>
+                <Link to={'/login'} className='navLink'>Login</Link>
+            </div>
+            <div>
+                <Link to={'/protected'} className='navLink'>Protected</Link>
+            </div>
         </div>
     )
 }

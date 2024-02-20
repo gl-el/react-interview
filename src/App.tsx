@@ -1,9 +1,12 @@
-import FixTheRouter from './modules/fix-the-router'
 import './styles/index.css'
+import { AuthProvider } from '@/context/AuthContext'
+import { Router } from '@/pages/router/Router'
 
 function App () {
     return <div className='container'>
-        <FixTheRouter />
+        <AuthProvider>
+            <Router />
+        </AuthProvider>
     </div>
 }
 
