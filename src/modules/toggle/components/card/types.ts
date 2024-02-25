@@ -3,5 +3,3 @@ export interface CardProps {
     name: string
     children: React.ReactNode
 }
-
-export type RefType = Map<string, HTMLElement>

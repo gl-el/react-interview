@@ -1,26 +1,35 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 
 import { type CardProps } from '@/modules/toggle/components/card/types'
 
-const Card = forwardRef<boolean, CardProps>(function Card (props, ref) {
+const Card = forwardRef<boolean, CardProps>(function Card ({openedName, name, children, Idk, title}, ref) {
     const cardRef = useRef(null);
-
+    const btnRef = useRef(null);
     useImperativeHandle(ref, () => {
         return {
-            setActive () {
-                ref.current = props.name;
+            focus() {
+                cardRef.current.focus()
             },
+            node: btnRef.current,
         };
-    }, [])
+    }, []);
+
+
+    useMemo(() => {
+        const arr = Array.from({ length: 1000000 });
+        console.log(arr);
+        return arr;
+    }, []);
+
 
     return (
         <div className="card">
             <div className="header">
-                <span>{props.title}</span>
-                <button ref={cardRef}>Toggle me</button>
+                <span>{title}</span>
+                <button ref={btnRef}>Toggle me</button>
             </div>
             <div className="form">
-                {ref.current && props.children}
+                {name === openedName && <Idk ref={cardRef} />}
             </div>
         </div>
     )
